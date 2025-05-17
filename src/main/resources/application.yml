@@ -1,0 +1,26 @@
+server:
+  address: ${COM_SM_SERVER_CDN_HOST:localhost}
+  port: ${COM_SM_SERVER_CDN_PORT:3335}
+#  ssl:
+#    enabled: false
+#    certificate: "classpath:_.thecoffeebox.vn-ssl.crt"
+#    certificate-private-key: "classpath:_.thecoffeebox.vn-key.key"
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 1280KB
+      max-request-size: 1280KB
+    session:
+      tracking-modes: cookie
+  profiles:
+    active: dev
+
+  application:
+    name: cdn
+
+  data:
+    hc:
+      cdn:
+        storage:
+          location: ${COM_SM_CDN_ROOT:/sm-cdn/dev}
